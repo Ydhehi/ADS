@@ -1,0 +1,55 @@
+ #include <stdio.h>
+  2    void main()
+  3    {
+  4        int k,i,j;
+  5        int a[5],b[5],c[10];
+  6        printf("enter elements of first array:");
+  7        for(i=0; i<5; i++)
+  8        {
+  9            scanf("%d",&a[i]);
+ 10
+ 11       }
+ 12
+ 13      printf("enter elements of 2nd array:");
+ 14       for(j=0; j<5; j++)
+ 15       {
+ 16           scanf("%d",&b[j]);
+ 17
+ 18       }
+ 19          i=0;
+ 20          j=0;
+ 21          k=0;
+ 22       while(i<5 && j<5)
+ 23       {
+ 24           if(a[i]<=b[j])
+ 25           {
+ 26               c[k]=a[i];
+ 27               k++;
+ 28               i++;
+ 29          }
+ 30           else
+ 31           {
+ 32               c[k]=b[j];
+ 33              k++;
+ 34               j++;
+ 35          }
+ 36       }
+ 37           while(i<5)
+ 38           {
+ 39               c[k]=a[i];
+ 40               k++;
+ 41               i++;
+ 42           }
+ 43           while(j<5)
+ 44           {
+ 45               c[k]=b[j];
+ 46               k++;
+ 47               j++;
+ 48           }
+ 49           printf("merged array:");
+ 50          for(i=0; i<10; i++)
+ 51           {
+ 52               printf("%d",c[i]);
+ 53
+ 54           }
+ 55  }
