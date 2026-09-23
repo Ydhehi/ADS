@@ -1,0 +1,9 @@
+#include <stdio.h>
+void main()
+{
+    int x=10;
+    int *p;
+    p=&x;
+    printf("value of x=%d",x);
+    printf("address of x=%p",*p);
+}
