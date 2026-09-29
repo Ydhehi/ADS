@@ -1,0 +1,11 @@
+ #include <stdio.h>
+ void main()
+ {
+     int a,sq;
+     int *p;
+     printf("enter a number:");
+     scanf("%d",&a);
+     p=&a;
+     sq=(*p)*(*p);
+     printf("square=%d",sq);
+}
