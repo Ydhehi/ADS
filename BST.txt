@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node *left,*right;
+};
+struct node *createNode(int value)
+{
+    struct node *newNode;
+    newNode=(struct node*)malloc(sizeof(struct node));
+    newNode->data=value;
+    newNode->left=NULL;
+    newNode->right=NULL;
+    return newNode;
+}
+struct node *insert(struct node *root,int value)
+{
+    if(root==NULL)
+    {
+        return createNode(value);
+    }
+    if(value<root->data)
+    {
+        root->left=insert(root->left,value);
+    }
+    else if(value>root->data)
+    {
+        root->right=insert(root->right,value);
+    }
+       return root;                 
+}
+struct node *search(struct node *root,int key)
+{
+    if(root==NULL || root->data==key)
+        return root;
+    if(key<root->data)
+        return search(root->left,key);
+    else
+        return search(root->right,key);
+}
+struct node *findMin(struct node *root)
+{
+            while(root->left != NULL)
+            root = root->left;
+
+            return root;
+
+}
+struct node *deleteNode(struct node *root,int key)
+{
+    if(root->left==NULL)
+    {
+        struct node *temp=root->right;
+        free(root);
+        return temp;
+    }
+    else if(root->right==NULL)
+    {
+        struct node *temp=root->left;
+        free(root);
+        return temp;
+    }
+    struct node *temp=findMin(root->right);
+    root->data=temp->data;
+    root->right=deleteNode(root->right,temp->data);
+
+return root;
+}
+void inorder(struct node *root)
+{
+    if(root!=NULL)
+    {
+        inorder(root->left);
+        printf("%d",root->data);
+        inorder(root->right);
+    }
+}
+int main()
+{
+    struct node *root=NULL;
+    struct node *result;
+    int ch,value;
+    while(1)
+        {
+            printf("\n1.INSERTION,\n2.SEARCHING,\n3.DELETION\n4.DISPLAY\n5.EXIT\n");
+            printf("enter your choice:");
+            scanf("%d",&ch);
+            switch(ch)
+                {
+                    case 1:
+                    printf("enter value:");
+                    scanf("%d",&value);
+                    root=insert(root,value);
+                    break;
+                    
+                   
+                    case 2:
+                    printf("enter value to search:");
+                    scanf("%d",&value);
+                    result=search(root,value);
+                    if(result!=NULL)
+                        printf("element found");
+                    else
+                        printf("element not found");
+                    break;
+
+                    
+                    case 3:
+                    printf("enter value to delete:");
+                    scanf("%d",&value);
+                    root=deleteNode(root,value);
+                    printf("deletion completed");
+                    break;
+
+                    
+                    case 4:
+                    printf("inorder traversal:");
+                    inorder(root);
+                    break;
+
+                    
+                    case 5:
+                    exit(0);
+
+                    
+                    default:
+                    printf("invalid choice");
+                }
+        }
+    return 0;
+}
