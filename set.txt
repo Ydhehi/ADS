@@ -1,0 +1,92 @@
+#include <stdio.h>
+#define SIZE 9
+
+int uset[SIZE]={1,2,3,4,5,6,7,8,9};
+
+void readset(int a[],int n);
+void printset(int a[]);
+void unionset(int a[],int b[],int c[]);
+void intersect(int a[],int b[],int c[]);
+void difference(int a[],int b[],int c[]);
+
+int main()
+{
+    int a[SIZE]={0},b[SIZE]={0},c[SIZE]={0};
+    int n;
+
+    printf("universal set:{1,2,3,4,5,6,7,8,9}");
+    printf("enter number of elements in A:");
+    scanf("%d",&n);
+    readset(a,n);
+
+    printf("enter number of elements in B:");
+    scanf("%d",&n);
+    readset(b,n);
+
+    printf("\nset A:");
+    printset(a);
+
+    printf("\n set B:");
+    printset(b);
+
+    unionset(a,b,c);
+    printf("A union B");
+    printset(c);
+
+    intersect(a,b,c);
+    printf("A intersection B");
+    printset(c);
+
+    difference(a,b,c);
+    printf("A - B");
+    printset(c);
+
+    return 0;
+}
+
+void readset(int a[],int n)
+{
+    int i,x;
+    printf("enter elements:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&x);
+        if(x>=1 && x<=SIZE)
+        {
+            a[x-1]=1;
+        }
+    }
+}
+
+void printset(int a[])
+{
+    int i;
+    printf("{");
+    for(i=0;i<SIZE;i++)
+    {
+        if(a[i]==1)
+            printf("%d",uset[i]);
+    }
+    printf("}\n");
+}
+
+void unionset(int a[],int b[],int c[])
+{
+    int i;
+    for(i=0;i<SIZE;i++)
+        c[i]=a[i] | b[i];
+}
+
+void intersect(int a[],int b[],int c[])
+{
+    int i;
+    for(i=0;i<SIZE;i++)
+        c[i]=a[i] & b[i];
+}
+
+void difference(int a[],int b[],int c[])
+{
+    int i;
+    for(i=0;i<SIZE;i++)
+        c[i]=a[i] & !b[i];
+}
