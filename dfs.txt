@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int g[10][10], vi[10], n;
+
+void dfs(int v)
+{
+    vi[v] = 1;
+    printf("%d ", v);
+
+    for(int i = 1; i <= n; i++)
+    {
+        if(g[v][i] == 1 && !vi[i])
+        {
+            dfs(i);
+        }
+    }
+}
+
+int main()
+{
+    int i, j, start;
+
+    printf("enter no of vertices:");
+    scanf("%d", &n);
+
+    printf("enter adjacency matrix:");
+
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= n; j++)
+        {
+            scanf("%d", &g[i][j]);
+        }
+    }
+
+    for(i = 1; i <= n; i++)
+        vi[i] = 0;
+
+    printf("enter starting vertex:");
+    scanf("%d", &start);
+
+    printf("DFS traversal:");
+    dfs(start);
+
+    return 0;
+}
