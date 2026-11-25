@@ -1,92 +1,125 @@
+```c
 #include <stdio.h>
 #define SIZE 9
 
-int uset[SIZE]={1,2,3,4,5,6,7,8,9};
+typedef struct
+{
+    unsigned char x : 1;
+} bit;
 
-void readset(int a[],int n);
-void printset(int a[]);
-void unionset(int a[],int b[],int c[]);
-void intersect(int a[],int b[],int c[]);
-void difference(int a[],int b[],int c[]);
+const int uset[SIZE] = {1,2,3,4,5,6,7,8,9};
+
+void readset(bit a[], int n);
+void printset(const bit a[]);
+void unionset(const bit a[], const bit b[], bit c[]);
+void intersect(const bit a[], const bit b[], bit c[]);
+void difference(const bit a[], const bit b[], bit c[]);
 
 int main()
 {
-    int a[SIZE]={0},b[SIZE]={0},c[SIZE]={0};
+    bit a[SIZE] = {{0}}, b[SIZE] = {{0}}, c[SIZE] = {{0}};
     int n;
 
-    printf("universal set:{1,2,3,4,5,6,7,8,9}");
-    printf("enter number of elements in A:");
-    scanf("%d",&n);
-    readset(a,n);
+    printf("Universal set: {1,2,3,4,5,6,7,8,9}\n");
 
-    printf("enter number of elements in B:");
-    scanf("%d",&n);
-    readset(b,n);
+    printf("\nNo. of elements in set A: ");
+    scanf("%d", &n);
+    readset(a, n);
 
-    printf("\nset A:");
+    printf("No. of elements in set B: ");
+    scanf("%d", &n);
+    readset(b, n);
+
+    printf("\nSet A: ");
     printset(a);
 
-    printf("\n set B:");
+    printf("Set B: ");
     printset(b);
 
-    unionset(a,b,c);
-    printf("A union B");
+    unionset(a, b, c);
+    printf("\nA U B = ");
     printset(c);
 
-    intersect(a,b,c);
-    printf("A intersection B");
+    intersect(a, b, c);
+    printf("\nA intersection B = ");
     printset(c);
 
-    difference(a,b,c);
-    printf("A - B");
+    difference(a, b, c);
+    printf("\nA - B = ");
     printset(c);
 
     return 0;
 }
 
-void readset(int a[],int n)
+void readset(bit a[], int n)
 {
-    int i,x;
-    printf("enter elements:");
-    for(i=0;i<n;i++)
+    int i, k, x;
+
+    if(n < 0 || n > SIZE)
     {
-        scanf("%d",&x);
-        if(x>=1 && x<=SIZE)
+        printf("Invalid size\n");
+        return;
+    }
+
+    printf("Enter %d elements: ", n);
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &x);
+
+        for(k = 0; k < SIZE; k++)
         {
-            a[x-1]=1;
+            if(uset[k] == x)
+            {
+                a[k].x = 1;
+                break;
+            }
         }
+
+        if(k == SIZE)
+            printf("%d is not in universal set\n", x);
     }
 }
 
-void printset(int a[])
+void printset(const bit a[])
 {
-    int i;
+    int k, first = 1;
+
     printf("{");
-    for(i=0;i<SIZE;i++)
+
+    for(k = 0; k < SIZE; k++)
     {
-        if(a[i]==1)
-            printf("%d",uset[i]);
+        if(a[k].x)
+        {
+            printf(first ? "%d" : ",%d", uset[k]);
+            first = 0;
+        }
     }
+
     printf("}\n");
 }
 
-void unionset(int a[],int b[],int c[])
+void unionset(const bit a[], const bit b[], bit c[])
 {
-    int i;
-    for(i=0;i<SIZE;i++)
-        c[i]=a[i] | b[i];
+    int k;
+
+    for(k = 0; k < SIZE; k++)
+        c[k].x = a[k].x | b[k].x;
 }
 
-void intersect(int a[],int b[],int c[])
+void intersect(const bit a[], const bit b[], bit c[])
 {
-    int i;
-    for(i=0;i<SIZE;i++)
-        c[i]=a[i] & b[i];
+    int k;
+
+    for(k = 0; k < SIZE; k++)
+        c[k].x = a[k].x & b[k].x;
 }
 
-void difference(int a[],int b[],int c[])
+void difference(const bit a[], const bit b[], bit c[])
 {
-    int i;
-    for(i=0;i<SIZE;i++)
-        c[i]=a[i] & !b[i];
+    int k;
+
+    for(k = 0; k < SIZE; k++)
+        c[k].x = a[k].x && !b[k].x;
 }
+```
