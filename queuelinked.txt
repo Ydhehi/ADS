@@ -1,123 +1,96 @@
 #include <stdio.h>
-#define SIZE 9
+#include <stdlib.h>
 
-typedef struct
+struct Node
 {
-    unsigned char x : 1;
-} bit;
+    int data;
+    struct Node*next;
+};
 
-const int uset[SIZE] = {1,2,3,4,5,6,7,8,9};
+struct Node*front=NULL;
+struct Node*rear=NULL;
 
-void readset(bit a[], int n);
-void printset(const bit a[]);
-void unionset(const bit a[], const bit b[], bit c[]);
-void intersect(const bit a[], const bit b[], bit c[]);
-void difference(const bit a[], const bit b[], bit c[]);
+void enqueue(int value)
+{
+    struct Node*newNode=(struct Node*)malloc(sizeof(struct Node));
+    if(newNode==NULL)
+    {
+        printf("queue overflow");
+        return;
+    }
+    newNode->data=value;
+    newNode->next=NULL;
+    if(rear==NULL)
+    {
+        front=rear=newNode;
+    }
+    else
+    {
+        rear->next=newNode;
+        rear=newNode;
+    }
+    printf("%d enqueued to queue \n",value);
+}
+
+void dequeue()
+{
+    if(front==NULL)
+    {
+        printf("queue umderflow");
+        return;
+    }
+    struct Node*temp=front;
+    printf("%d dequeued from queue \n",front->data);
+    front=front->next;
+    if(front==NULL)
+        rear=NULL;
+    free(temp);
+}
+
+void display()
+{
+    if(front==NULL)
+    {
+        printf("queue is empty");
+        return;
+    }
+    struct Node*temp=front;
+    printf("queue elements:");
+    while(temp!=NULL)
+    {
+        printf("%d->.",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL\n");
+}
 
 int main()
 {
-    bit a[SIZE] = {{0}}, b[SIZE] = {{0}}, c[SIZE] = {{0}};
-    int n;
-
-    printf("Universal set: {1,2,3,4,5,6,7,8,9}\n");
-
-    printf("\nNo. of elements in set A: ");
-    scanf("%d", &n);
-    readset(a, n);
-
-    printf("No. of elements in set B: ");
-    scanf("%d", &n);
-    readset(b, n);
-
-    printf("\nSet A: ");
-    printset(a);
-
-    printf("Set B: ");
-    printset(b);
-
-    unionset(a, b, c);
-    printf("\nA U B = ");
-    printset(c);
-
-    intersect(a, b, c);
-    printf("\nA intersection B = ");
-    printset(c);
-
-    difference(a, b, c);
-    printf("\nA - B = ");
-    printset(c);
-
-    return 0;
-}
-
-void readset(bit a[], int n)
-{
-    int i, k, x;
-
-    if(n < 0 || n > SIZE)
+    int ch,value;
+    while(1)
     {
-        printf("Invalid size\n");
-        return;
-    }
-
-    printf("Enter %d elements: ", n);
-
-    for(i = 0; i < n; i++)
-    {
-        scanf("%d", &x);
-
-        for(k = 0; k < SIZE; k++)
+        printf("\nQUEUE USING LINKED LIST\n");
+        printf("1.enqueue \n2.dequeue \n3.display \n4.exit\n");
+        printf("enter your choice:");
+        scanf("%d",&ch);
+        switch(ch)
         {
-            if(uset[k] == x)
-            {
-                a[k].x = 1;
+            case 1:
+                printf("enter value:");
+                scanf("%d",&value);
+                enqueue(value);
                 break;
-            }
-        }
-
-        if(k == SIZE)
-            printf("%d is not in universal set\n", x);
-    }
-}
-
-void printset(const bit a[])
-{
-    int k, first = 1;
-
-    printf("{");
-
-    for(k = 0; k < SIZE; k++)
-    {
-        if(a[k].x)
-        {
-            printf(first ? "%d" : ",%d", uset[k]);
-            first = 0;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("invalid choice");
         }
     }
-
-    printf("}\n");
-}
-
-void unionset(const bit a[], const bit b[], bit c[])
-{
-    int k;
-
-    for(k = 0; k < SIZE; k++)
-        c[k].x = a[k].x | b[k].x;
-}
-
-void intersect(const bit a[], const bit b[], bit c[])
-{
-    int k;
-
-    for(k = 0; k < SIZE; k++)
-        c[k].x = a[k].x & b[k].x;
-}
-
-void difference(const bit a[], const bit b[], bit c[])
-{
-    int k;
-
-    for(k = 0; k < SIZE; k++)
-        c[k].x = a[k].x && !b[k].x;
+    return 0;
 }
