@@ -1,4 +1,3 @@
-```c
 #include <stdio.h>
 #define SIZE 9
 
@@ -122,4 +121,3 @@ void difference(const bit a[], const bit b[], bit c[])
     for(k = 0; k < SIZE; k++)
         c[k].x = a[k].x && !b[k].x;
 }
-```
