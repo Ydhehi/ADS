@@ -1,0 +1,65 @@
+Enter the size of stack: 5
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 1
+Enter value: 10
+10 Pushed
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 1
+Enter value: 20
+20 Pushed
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 1
+Enter value: 30
+30 Pushed
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 3
+Stack elements are:
+30
+20
+10
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 2
+30 Popped
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 3
+Stack elements are:
+20
+10
+
+STACK OPERATIONS
+1. PUSH
+2. POP
+3. DISPLAY
+4. EXIT
+Enter your choice: 4
+Exiting...

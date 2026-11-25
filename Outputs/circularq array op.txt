@@ -1,0 +1,24 @@
+1.enqueue
+2.dequeue
+3.display
+4.exit
+enter your choice:1
+enter the element:10
+
+enter your choice:1
+enter the element:20
+
+enter your choice:1
+enter the element:30
+
+enter your choice:3
+queue elements:10 20 30
+
+enter your choice:2
+deleted element:10
+
+enter your choice:3
+queue elements:20 30
+
+enter your choice:4
+

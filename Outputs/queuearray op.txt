@@ -1,0 +1,51 @@
+enter size of queue: 5
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 1
+enter the elements: 10
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 1
+enter the elements: 20
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 1
+enter the elements: 30
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 3
+queue is:10 20 30
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 2
+deleted 10
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 3
+queue is:20 30
+
+1.ENQUEUE
+2.DEQUEUE
+3.DISPLAY
+4.EXIT
+enter your choice: 4
+
+=== Code Exited Successfully ===

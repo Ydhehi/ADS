@@ -1,0 +1,76 @@
+
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 1
+Enter value: 2
+
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 1
+Enter value: 4
+
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 1
+Enter value: 1
+
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 1
+Enter value: 6
+
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 4
+Inorder traversal: 1 2 4 6 
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 5
+Preorder traversal: 2 1 4 6 
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 6
+Postorder traversal: 1 6 4 2 
+1. INSERTION
+2. SEARCHING
+3. DELETION
+4. INORDER
+5. PREORDER
+6. POSTORDER
+7. EXIT
+Enter your choice: 7

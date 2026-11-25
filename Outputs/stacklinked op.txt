@@ -1,0 +1,58 @@
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 1
+enter value: 10
+10 pushed to stack
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 1
+enter value: 20
+20 pushed to stack
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 1
+enter value: 30
+30 pushed to stack
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 3
+stack elements: 30->20->10->NULL
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 2
+30 popped from stack
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 3
+stack elements: 20->10->NULL
+
+--stack using linked list--
+1.push
+2.pop
+3.display
+4.exit
+enter your choice: 4
+exiting

@@ -1,0 +1,66 @@
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 1
+enter value: 10
+10 enqueued to queue
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 1
+enter value: 20
+20 enqueued to queue
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 1
+enter value: 30
+30 enqueued to queue
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 3
+queue elements:10 -> 20 -> 30 -> NULL
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 2
+10 dequeued from queue
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 3
+queue elements:20 -> 30 -> NULL
+
+QUEUE USING LINKED LIST
+1.enqueue
+2.dequeue
+3.display
+4.exit
+
+enter your choice: 4
+
+=== Code Exited Successfully ===
